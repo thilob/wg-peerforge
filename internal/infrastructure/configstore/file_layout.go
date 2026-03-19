@@ -7,7 +7,7 @@ func ServerDirectory(serverID string) string {
 }
 
 func ServerConfigPath(serverID string) string {
-	return filepath.Join(ServerDirectory(serverID), "server.toml")
+	return filepath.Join(ServerDirectory(serverID), "server.json")
 }
 
 func PeersDirectory(serverID string) string {
@@ -15,7 +15,7 @@ func PeersDirectory(serverID string) string {
 }
 
 func PeerConfigPath(serverID, peerID string) string {
-	return filepath.Join(PeersDirectory(serverID), peerID+".toml")
+	return filepath.Join(PeersDirectory(serverID), peerID+".json")
 }
 
 func RenderedServerConfigPath(serverID, interfaceName string) string {

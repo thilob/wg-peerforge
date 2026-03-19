@@ -1,6 +1,7 @@
 package usecases
 
 import (
+	"errors"
 	"fmt"
 	"strings"
 
@@ -48,7 +49,7 @@ func CreateServer(input CreateServerInput, deps struct {
 
 	result := validation.ValidateServer(server)
 	if !result.Valid {
-		return models.Server{}, fmt.Errorf(strings.Join(result.Errors, "; "))
+		return models.Server{}, errors.New(strings.Join(result.Errors, "; "))
 	}
 
 	if err := deps.ConfigStore.SaveServer(server); err != nil {

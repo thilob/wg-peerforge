@@ -1,6 +1,7 @@
 package usecases
 
 import (
+	"errors"
 	"fmt"
 	"strings"
 	"time"
@@ -55,7 +56,7 @@ func CreatePeer(input CreatePeerInput, deps struct {
 
 	result := validation.ValidatePeer(peer)
 	if !result.Valid {
-		return models.Peer{}, fmt.Errorf(strings.Join(result.Errors, "; "))
+		return models.Peer{}, errors.New(strings.Join(result.Errors, "; "))
 	}
 
 	if err := deps.ConfigStore.SavePeer(peer); err != nil {
