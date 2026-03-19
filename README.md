@@ -13,7 +13,7 @@ The first iteration focuses on:
 
 ## Layout
 
-- `cmd/wireguard-tui`: CLI entry point
+- `cmd/wg-peerforge`: CLI entry point
 - `internal/domain`: business model and validation
 - `internal/app`: use-cases and ports
 - `internal/infrastructure`: rendering and system-specific adapters
